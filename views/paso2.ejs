@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Curso - Paso 2</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <form action="/paso3" method="POST">
+    <h1>Paso 2: Selecciona los módulos</h1>
+    <p>Curso seleccionado: <%= curso %></p>
+    <label>
+      <input type="checkbox" name="modulos" value="Basico"> Básico
+      <input type="hidden" name="curso" value=<%= curso %>> 
+    </label>
+    <label>
+      <input type="checkbox" name="modulos" value="Intermedio"> Intermedio
+    </label>
+    <label>
+      <input type="checkbox" name="modulos" value="Avanzado"> Avanzado
+    </label>
+    <button type="submit">Siguiente</button>
+  </form>
+</body>
+</html>

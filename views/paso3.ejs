@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Curso - Paso 3</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <form>
+    <h1>Paso 3: Selecciona el método de pago</h1>
+    <p>Curso seleccionado: <%= curso %></p>
+    <p>Módulos seleccionados:</p>
+    <ul>
+      <% if (Array.isArray(modulos)) { %>
+        <% modulos.forEach(modulo => { %>
+          <li><%= modulo %></li>
+        <% }); %>
+      <% } else { %>
+        <li>No se seleccionaron módulos.</li>
+      <% } %>
+    </ul>
+    <label>
+      <input type="radio" name="pago" value="tarjeta"> Tarjeta de Crédito
+    </label>
+    <label>
+      <input type="radio" name="pago" value="efectivo"> Efectivo
+    </label>
+    <button type="button" onclick="calcularTotal()">Calcular Total</button>
+  </form>
+
+  <div id="total-container" style="display: none;">
+    <h2>Detalle de la compra:</h2>
+    <p>Curso: <%= curso %></p>
+    <p>Módulos seleccionados:</p>
+    <ul>
+      <% if (Array.isArray(modulos)) { %>
+        <% modulos.forEach(modulo => { %>
+          <li><%= modulo %></li>
+        <% }); %>
+      <% } else { %>
+        <li>No se seleccionaron módulos.</li>
+      <% } %>
+    </ul>
+    <p>Método de pago: <%= pago %></p>
+    <p>Total a pagar: <span id="total-amount">Calculando...</span></p>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
+
